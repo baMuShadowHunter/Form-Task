@@ -14,21 +14,25 @@ btn.addEventListener("submit", () => {
 
         if (val === "") {
             elementt.classList.add("required")
+            elementt.classList.remove("sucess")
         } else {
+            elementt.classList.add("success")
             elementt.classList.remove("required")
         }
 
-        //email
+        //Email
         if (input.classList.contains("Email")) {
             if (!re.test(val) && val !== "") {
                 elementt.classList.add("required")
+                elementt.classList.remove("success")
                 para.innerHTML = "Enter the Valid '@' '.' Email!";
             }
         }
 
         //pass
-        if (input.classList.contains("Retype")) {
+        if (input.classList.contains("Retype") && input.value !== "") {
             if (pass.value !== ret.value) {
+                elementt.classList.remove("success")
                 elementt.classList.add("required")
                 para.innerHTML = "Does not match the password!";
             }
